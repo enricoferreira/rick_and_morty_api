@@ -3,348 +3,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rick and Morty</title>
-    <link href="https://fonts.googleapis.com/css?family=Exo+2|Lakki+Reddy|Shadows+Into+Light&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/f9053d4c13.js" crossorigin="anonymous"></script>
+    <title>Rick and Morty</title>        
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">    
+     <!--Import Google Icon Font-->
+     <script type = "text/javascript"
+     src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link rel="stylesheet" href="./style.css">
+     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> -->
+     <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 
-    <style>
-        body{
-            margin: 0;
-            padding: 0;
-        }
-        nav{
-            background: rgb(240, 108, 108);
-            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2)
-        }
-        ul{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0;
-            padding: 1rem;
-        }
-        ul li{
-            display: inline;
-            padding-right: 10px;
-            padding-left: 10px;
-        }
-        ul li:first-child{
-            font-family: 'Shadows Into Light', cursive;
-        }
-        a{
-            text-decoration: none;
-        }
-
-        ul li input{
-            background: none;
-            border: none;
-            border-bottom: 1px solid #e4e1e1;
-            padding: 5px;
-            padding-left: 25px;
-            color: white;
-        }
-
-        ul li a{
-            color: white;
-        }
-        .nav-items{
-            display: flex;
-        }        
-        
-        .container{
-            width: 96%;
-            margin: 0 auto;
-            font-family: 'Exo 2', sans-serif;
-            color: rgb(73, 72, 72);
-        }
-
-        .table-box{
-            width: 95%;
-            margin: 0 auto;      
-            display: flex;
-            justify-content: center;      
-        }
-
-        .input-search{
-            display: flex;
-            position: relative;
-        }
-
-        .input-search i{
-            position: absolute;
-            left: 15px;
-            top: 5px;
-            color: white;
-        }
-
-        .table-data{
-            border-collapse: collapse;
-            text-align: center;
-        }
-
-        th{
-            color: whitesmoke;
-            letter-spacing: 1px;
-        }
-
-        td img{
-            width: 45px;
-            height: 45px;
-        }
-
-        thead{
-            padding: 1rem;
-            background: rgb(235, 114, 114);
-        }
-
-        td, th{
-            padding: .5rem;
-            min-width: 100px;
-        }
-
-        tr{
-            border-bottom: 1px solid rgba(243, 140, 140, 0.329) ;
-        }
-
-        .pagination{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .btn{
-            padding: 5px;
-            border: 2px solid rgb(233, 127, 127);            
-            color: white;
-            background: rgb(233, 127, 127);
-            margin-right: 5px;
-            margin-left: 5px;
-        }
-
-        .circle{
-            border-radius: 50%;
-        }
-
-        #pageInput{
-            width: 40px;
-            padding: .5rem;
-            border: 1px solid rgb(240, 143, 143);
-            border-radius: 10%;
-        }
-    </style>
-    
 </head>
 <body>
+    <div class="container">
+        <div class="row vh-5">
+            <div class="col s12">
+                <h5 class="header ">
+                    Rick And Morty - API
+                </h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-tabs">
+                        <ul class="tabs tabs-fixed-width">
+                            <li class="tab"><a class="active" href="#tabelaTab">Tabela</a></li>
+                            <li class="tab"><a href="#graficoTab">Gráfico</a></li>                            
+                        </ul>
+                    </div>
+                    <div class="card-content grey lighten-4">
+                        <div id="tabelaTab">
+                            <div class="row">
+                                <div class="input-field col s12 m6">
+                                    <i class="material-icons prefix">search</i>
+                                    <input id="icon_prefix" type="text" class="validate">
+                                    <label for="icon_prefix">Pesquisar Personagem</label>
+                                </div>
+                            </div>
+                            <div class="row overflow-auto vh-45">
+                                <div class="col s12">
+                                    <table class="striped highlight" id="table-personagem">
+                                        <thead>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="">RICK AND MORTY - API</a></li>
-                <div class="nav-items">
-                    <li><a href="">About</a></li>
-                    <div class="input-search">
-                        <i class="fas fa-search"></i>
-                        <li><input type="search" id="search-inp-table"></li>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="graficoTab">
+                            <div class="ct-chart ct-perfect-fourth overflow-auto"></div>
+                        </div>                        
                     </div>
                 </div>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="container">
-        <!-- <h2 class="header-text">Table RM</h2> -->
-        <div class="table-box">
-            <table class="table-data">
-            </table>
-        </div>
-
-        <div class="chart-box">
-            <div id="containerChart"></div>
-        </div>
-
-        <div class="pagination">
-            <div class="arrow-buttons">
-                <a id="btn-back" class="btn circle"><i class="fas fa-arrow-left"></i></a>
-                <input type="text" id="pageInput">
-                <a id="btn-next" class="btn circle"><i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
-
-
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./js/materialize-functions.js"></script>
+    <script type="module" src="./js/main.js"></script>
     <script>
-        const url = "https://rickandmortyapi.com/api/character/";
-        const table = document.querySelector(".table-data");
-        const inputPage = document.querySelector("#pageInput");
-
-        function createHeadTable(jsonDados){
-            const thead = document.createElement("thead");
-            const trHead = document.createElement("tr");
-            const headers = Object.getOwnPropertyNames(jsonDados[0]);
-
-            headers.forEach(head => {   
-                if(head != "episode" && head != "origin" && head != "location" && head != "created" && head != "url" && head != "type"){
-                    const th = document.createElement("th");
-                    th.innerText = head;
-                    trHead.appendChild(th);                    
-                }
-            })
-            thead.appendChild(trHead);
-            return thead;            // console.log(Object.getOwnPropertyNames(jsonDados[0])[0]);// => id
-        }
-
-        function createBodyTable(jsonDados){
-            const tBody = document.createElement("tbody");
-            jsonDados.forEach((person, index) => {             
-            const trBody = document.createElement("tr");
-                const columns = Object.getOwnPropertyNames(person);   
-                columns.forEach((column, indexCol) => {
-                    
-                    if(column != "episode" && column != "origin" && column != "location" && column != "created" && column != "url" && column != "type"){
-                    const td = document.createElement("td");                        
-                        if(indexCol==0){
-                            td.innerText = person.id;
-                        }else if(indexCol==1){
-                            td.innerText = person.name;
-                            td.setAttribute("class", "nomeTd");
-                        }else if(indexCol==2){
-                            td.innerText = person.status;
-                        }else if(indexCol==3){
-                            td.innerText = person.species;
-                        }else if(indexCol==5){
-                            td.innerText = person.gender;
-                        }else if(indexCol==8){
-                            const img = document.createElement("img");
-                            img.setAttribute("src", person.image);
-                            td.appendChild(img);
-                        } 
-                            // console.log(td);
-                    trBody.appendChild(td);
-                    }
-                })
-            tBody.appendChild(trBody);                
-            })
-            return tBody;            
-        }
-
-        function createTable(jsonDados){            
-            const thead = createHeadTable(jsonDados);            
-            const tBody = createBodyTable(jsonDados);            
-            table.append(thead);
-            table.append(tBody);
-        }
-
-        const pageNumber = (jsonDados)=>{
-            
-        }
-
-        const episodes = (jsonDados)=>{
-            const chartSerie = jsonDados.map((character, index)=> {
-                
-                const name = character.name;
-                const episode = character.episode.length;
-                
-                return  {
-                    "name": name,
-                    "y": episode
-                }
-            })
-            return chartSerie;
-        }
-
-        const createChartEpisodes = (dataChart)=>{
-            console.log(dataChart);
-
-    Highcharts.chart('containerChart', {
-    chart: {
-        type: 'column'
-    },
-    title: {
-        text: 'Monthly Average Rainfall'
-    },
-    subtitle: {
-        text: 'Source: WorldClimate.com'
-    },
-    
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Rainfall (mm)'
-        }
-    },
-    tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-        footerFormat: '</table>',
-        /* shared: true, */
-        useHTML: true
-    },
-    plotOptions: {
-        // series: {
-        //     pointWidth: 30
-        // },
-        column: {
-            pointPadding: 0.2,
-            pointWidth: 35,
-            borderWidth: 0
-        }
-    },
-    series: [{
-        name: 'Tokyo',
-        data: dataChart
-
-    }, ]
-});        
-
-        }
-
-        async function request(url){
-            const dados = await fetch(url);
-            const jsonDados = await dados.json();
-            const table = createTable(jsonDados.results);
-            const page = pageNumber(jsonDados);
-            const dataChart = episodes(jsonDados.results);
-            createChartEpisodes(dataChart);
-        }
-
-        request(url);
-        
-        const inputSearch = document.querySelector("#search-inp-table");                
-        let textTd;
-        const filterTable = ()=>{
-            const filter = inputSearch.value.toUpperCase();        
-            const colNome = document.querySelectorAll(".nomeTd");
-            
-            // const arrayNome = Array.from(colNome);
-            // if(inputSearch.value.length > 1){
-                // const nomes = arrayNome.map(el => {
-                //     return el.innerText;
-                // })
-                colNome.forEach(nome => {
-                    textTd = nome.innerText || nome.textContent;                    
-                    if(textTd.toUpperCase().indexOf(filter)>-1){
-                        // nome.parentElement.style.display = "none";
-                        nome.parentElement.style.display = "";
-                    }else{
-                        nome.parentElement.style.display = "none";
-                    }
-                })                
-            // }
-        }
-
-        inputSearch.addEventListener("keydown", filterTable);
-
-
 
     </script>
-
+    
 </body>
 </html>
