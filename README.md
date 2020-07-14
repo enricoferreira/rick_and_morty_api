@@ -1,4 +1,4 @@
-# Rikc And Morty - API
+# Rick And Morty - API
 
 <strong>The Project</strong>
 <br>
@@ -6,7 +6,7 @@ O projeto tem como objetivo principal mostrar os personagens de todos os episód
 
 <strong>What i need to run the app?</strong>
 <br>
-- node.js -> install -> https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions-enterprise-linux-fedora-and-snap-packages
+- node.js -> install -> https://nodejs.org/en/download/
 - http-server install ( after node.js ) -> npm install http-server
 
 - to run the project, type in cmd or terminal: <strong>http-server .</strong>, click in one of the available options.
